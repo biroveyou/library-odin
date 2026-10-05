@@ -5,7 +5,6 @@ function Book(idBook, title, author, pageNumber, haveRead) {
     if (!new.target) {
         throw Error("You must use the 'new' operator to call the constructor");
     }
-
     this.idBook = idBook;
     this.title = title;
     this.author = author;
@@ -16,8 +15,6 @@ function Book(idBook, title, author, pageNumber, haveRead) {
 Book.prototype.readPhrase = function() {
     return this.haveRead ? "already read" : "not read yet"
 }
-
-
 Book.prototype.info = function() {
     return `ID: ${this.idBook} - ${this.title} by ${this.author}, ${this.pageNumber} pages, ${this.readPhrase()}`;
 }
@@ -31,9 +28,9 @@ function addBookToLibrary(title, author, pageNumber, haveRead) {
 // Array to hold book objects
 let myCollection= [];
 
-addBookToLibrary("test1", "Myself", "12", false);
-addBookToLibrary("test2 with some additions", "Myself", "120", true);
-addBookToLibrary("test3 and way more stuff on here and there", "Myself", "1100", false);
+addBookToLibrary("The Fellowship of the Ring", "J. R. R. Tolkien", "479", false);
+addBookToLibrary("The Two Towers", "J. R. R. Tolkien", "415", true);
+addBookToLibrary("The Return of the King", "J. R. R. Tolkien", "496", false);
 
 
 const bookshelf = document.querySelector(".bookshelf");
@@ -67,8 +64,6 @@ for (let book of myCollection) {
 
     const bookHaveRead = document.createElement("span");
     bookHaveRead.classList.add("tag");
-    bookHaveRead.textContent = book.haveRead ? "already read" : "not read yet";
+    bookHaveRead.textContent = book.readPhrase();
     bookTags.appendChild(bookHaveRead);
 }
-
-console.log(myCollection[1].info());
