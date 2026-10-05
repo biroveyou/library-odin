@@ -11,16 +11,20 @@ function Book(idBook, title, author, pageNumber, haveRead) {
     this.author = author;
     this.pageNumber = pageNumber;
     this.haveRead = haveRead;
+}
 
-    this.info = function() {
-        const readPhrase = haveRead ? "already read" : "not read yet"
-        return `ID: ${idBook} - ${this.title} by ${this.author}, ${this.pageNumber} pages, ${readPhrase}`;
-    }
+Book.prototype.readPhrase = function() {
+    return this.haveRead ? "already read" : "not read yet"
+}
+
+
+Book.prototype.info = function() {
+    return `ID: ${this.idBook} - ${this.title} by ${this.author}, ${this.pageNumber} pages, ${this.readPhrase()}`;
 }
 
 // Function to create and add a book
 function addBookToLibrary(title, author, pageNumber, haveRead) {
-    const newBook = new Book(crypto.randomUUID, title, author, pageNumber, haveRead);
+    const newBook = new Book(crypto.randomUUID(), title, author, pageNumber, haveRead);
     myCollection.push(newBook);
 }
 
@@ -35,38 +39,36 @@ addBookToLibrary("test3 and way more stuff on here and there", "Myself", "1100",
 const bookshelf = document.querySelector(".bookshelf");
 
 // Insert all books from myCollection into HTML
-// for (let book of myCollection) {
-//     const bookTitle = document.createElement("h3");
-//     bookTitle.textContent = book.title;
-//     bookshelf.appendChild(bookTitle);
-// }
+for (let book of myCollection) {
+    const bookCard = document.createElement("div");
+    bookCard.classList.add("book-card")
+    bookshelf.appendChild(bookCard);
 
-const bookCard = document.createElement("div");
-bookCard.classList.add("book-card")
-bookshelf.appendChild(bookCard);
+    const bookLabel = document.createElement("div");
+    bookLabel.classList.add("book-label")
+    bookCard.appendChild(bookLabel);
 
-const bookLabel = document.createElement("div");
-bookLabel.classList.add("book-label")
-bookCard.appendChild(bookLabel);
+    const bookTitle = document.createElement("h3");
+    bookTitle.textContent = book.title;
+    bookLabel.appendChild(bookTitle);
 
-const bookTitle = document.createElement("h3");
-bookTitle.textContent = myCollection[1].title;
-bookLabel.appendChild(bookTitle);
+    const bookAuthor = document.createElement("p");
+    bookAuthor.textContent = book.author;
+    bookLabel.appendChild(bookAuthor);
 
-const bookAuthor = document.createElement("p");
-bookAuthor.textContent = myCollection[1].author;
-bookLabel.appendChild(bookAuthor);
+    const bookTags = document.createElement("div");
+    bookTags.classList.add("book-tags")
+    bookCard.appendChild(bookTags);
 
-const bookTags = document.createElement("div");
-bookTags.classList.add("book-tags")
-bookCard.appendChild(bookTags);
+    const bookPageNumber = document.createElement("span");
+    bookPageNumber.classList.add("tag");
+    bookPageNumber.textContent = book.pageNumber + " pages";
+    bookTags.appendChild(bookPageNumber);
 
-const bookPageNumber = document.createElement("span");
-bookPageNumber.classList.add("tag");
-bookPageNumber.textContent = myCollection[1].pageNumber + " pages";
-bookTags.appendChild(bookPageNumber);
+    const bookHaveRead = document.createElement("span");
+    bookHaveRead.classList.add("tag");
+    bookHaveRead.textContent = book.haveRead ? "already read" : "not read yet";
+    bookTags.appendChild(bookHaveRead);
+}
 
-const bookHaveRead = document.createElement("span");
-bookHaveRead.classList.add("tag");
-bookHaveRead.textContent = myCollection[1].haveRead ? "already read" : "not read yet";
-bookTags.appendChild(bookHaveRead);
+console.log(myCollection[1].info());
