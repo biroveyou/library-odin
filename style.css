@@ -7,6 +7,47 @@
     box-sizing: border-box;
 }
 
+/* Text 
+Styles */
+
+@font-face {
+    font-family: 'Raleway';
+    src: url("./fonts/Raleway-VariableFont_wght.woff2") format("woff2");
+    font-weight: 100 900;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url("./fonts/Raleway-Italic-VariableFont_wght.woff2") format("woff2");
+    font-weight: 100 900;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url("./fonts/Merriweather-VariableFont_opsz\,wdth\,wght.woff2") format("woff2");
+    font-weight: 300 900;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Merriweather';
+    src: url("./fonts/Merriweather-Italic-VariableFont_opsz\,wdth\,wght.woff2") format("woff2");
+    font-weight: 300 900;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
 .bookshelf {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
