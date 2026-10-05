@@ -1,7 +1,48 @@
 :root {
-    
+    --light-grey: #cfcfcf;
+    --dark-grey: #838383;
 }
 
 * {
     box-sizing: border-box;
+}
+
+.book-card * {
+    margin: 0;
+    padding: 0;
+}
+
+.book-card {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    gap: 8px;
+}
+
+.book-label {
+    grid-row: 2;
+}
+
+.book-label h3 {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+}
+
+.book-label p {
+    color: var(--dark-grey);
+}
+
+.book-tags {
+    grid-column: 1 / span 2;
+    display: flex;
+    gap: 4px;
+}
+
+.book-tags .tag {
+    border: 1px solid var(--light-grey);
+    border-radius: 16px;
+
+    padding: 4px 6px;
+
+    font-size: 0.85rem;
 }
