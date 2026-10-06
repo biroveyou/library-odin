@@ -139,7 +139,8 @@ legend {
     margin-bottom: 4px;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="number"] {
     all: unset;
     border: 1px solid var(--dark-grey);
     background-color: var(--light-grey);
@@ -147,7 +148,8 @@ input[type="text"] {
     padding: 4px 8px;    
 }
 
-input[type="text"]:focus {
+input[type="text"]:focus,
+input[type="number"]:focus {
     border: 1px solid var(--black);
     background-color: var(--white);
 }
