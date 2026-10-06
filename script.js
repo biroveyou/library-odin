@@ -79,14 +79,14 @@ function displayBook(book) {
     removeBookBtn.classList.add("remove-book-btn");
     bookAction.appendChild(removeBookBtn);
     removeBookBtn.addEventListener("click", (item) => {
-        myCollection.splice(getIndex(item.idBook), 1);
+        myCollection.splice(getIndex(book.idBook), 1);
         bookCard.remove();
     });
 
     const readStatusBtn = document.createElement("button");
     readStatusBtn.classList.add("read-status-btn");
     bookAction.appendChild(readStatusBtn);
-    readStatusBtn.addEventListener("click", (item) => {
+    readStatusBtn.addEventListener("click", () => {
         bookHaveRead.textContent = book.toggleHaveRead();
         bookHaveRead.classList.toggle("already-read");
     });
@@ -101,9 +101,9 @@ function refreshDisplay() {
 // Array to hold book objects
 let myCollection= [];
 
-addBookToLibrary("The Fellowship of the Ring", "J. R. R. Tolkien", "479", false);
-addBookToLibrary("The Two Towers", "J. R. R. Tolkien", "415", true);
-addBookToLibrary("The Return of the King", "J. R. R. Tolkien", "496", false);
+addBookToLibrary("The Fellowship of the Ring", "J. R. R. Tolkien", 479, false);
+addBookToLibrary("The Two Towers", "J. R. R. Tolkien", 415, true);
+addBookToLibrary("The Return of the King", "J. R. R. Tolkien", 496, false);
 
 refreshDisplay();
 
@@ -127,7 +127,10 @@ addBookBtn.addEventListener("click", (event) => {
     event.preventDefault();
     if (newBookForm.checkValidity()) {
         const formControls = newBookForm.elements;
-        addBookToLibrary(formControls[0].value, formControls[1].value, formControls[2].value, formControls[4].checked);
+        addBookToLibrary(formControls['input-book-title'].value,
+            formControls['input-book-author'].value,
+            Number(formControls['input-page-number'].value),
+            formControls['input-have-read'].checked);
         displayBook(myCollection[myCollection.length - 1]);
         newBookForm.reset();
         newBookDialog.close();
