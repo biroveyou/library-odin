@@ -26,6 +26,7 @@ Part of [The Odin Project](https://www.theodinproject.com) curriculum (Project: 
 - Building elements dynamically with the **DOM API**
 - The native HTML `<dialog>` element and built-in form validation
 - Responsive layout in **pure CSS**, without media queries
+- `CSS Grid with repeat(auto-fill, minmax(...))` for responsiveness without media queries
 
 ## Tech Stack
 HTML5 · CSS3 · JavaScript (vanilla)

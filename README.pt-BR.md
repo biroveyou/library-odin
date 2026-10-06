@@ -1,4 +1,3 @@
-<!-- README.pt-BR.md -->
 # 📚 Library
 
 [🇺🇸 English](README.md) | 🇧🇷 Português
@@ -7,9 +6,9 @@ Um pequeno app web para organizar os livros que você tem e marcar quais já leu
 
 Faz parte do currículo do [The Odin Project](https://www.theodinproject.com) (Projeto: Library).
 
-**[Demo online](https://biroveyou.github.io/library-odin/)** 
+**[Demo online](https://biroveyou.github.io/library-odin/)**
 
-![Captura de tela do Library](./screenshot.png) 
+![Captura de tela do Library](./screenshot.png)
 
 ## Funcionalidades
 - Adicionar um livro por um formulário em modal (título, autor, número de páginas e status de leitura)
@@ -26,6 +25,7 @@ Faz parte do currículo do [The Odin Project](https://www.theodinproject.com) (P
 - Criar elementos dinamicamente com a **API do DOM**
 - O elemento nativo `<dialog>` do HTML e a validação de formulário embutida
 - Layout responsivo em **CSS puro**, sem media queries
+- `CSS Grid com repeat(auto-fill, minmax(...))` para responsividade sem media queries.
 
 ## Tecnologias
 HTML5 · CSS3 · JavaScript (puro)
@@ -46,6 +46,7 @@ library-odin/
 ├── index.html
 ├── style.css
 ├── script.js
+├── screenshot.png
 ├── fonts/
 └── icons/
 ```
