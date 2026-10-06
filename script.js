@@ -77,6 +77,7 @@ function displayBook(book) {
 
     const removeBookBtn = document.createElement("button");
     removeBookBtn.classList.add("remove-book-btn");
+    removeBookBtn.setAttribute("aria-label", `Remove ${book.title}`);
     bookAction.appendChild(removeBookBtn);
     removeBookBtn.addEventListener("click", (item) => {
         myCollection.splice(getIndex(book.idBook), 1);
@@ -85,6 +86,7 @@ function displayBook(book) {
 
     const readStatusBtn = document.createElement("button");
     readStatusBtn.classList.add("read-status-btn");
+    readStatusBtn.setAttribute("aria-label", `Toggle read status of ${book.title}`);
     bookAction.appendChild(readStatusBtn);
     readStatusBtn.addEventListener("click", () => {
         bookHaveRead.textContent = book.toggleHaveRead();
