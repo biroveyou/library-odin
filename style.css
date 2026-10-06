@@ -3,6 +3,7 @@
     --light-grey: #F7F7F7;
     --dark-grey: #777777;
     --white: #FFFFFF;
+    --radius: 16px;
 }
 
 * {
@@ -63,6 +64,130 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
     padding: 20px;
+}
+
+/* Control 
+Styles*/
+
+.controls {
+    margin: 32px 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.controls h2 {
+    align-self: center;
+    margin: 0;
+    padding: 0;
+}
+
+#new-book-btn {
+    all: unset;
+    cursor: pointer;
+    border-radius: 32px;
+    padding: 12px 32px;
+    background-color: var(--black);
+    color: var(--white);
+    font-family: 'Raleway';
+    font-weight: 600;
+}
+
+dialog {
+    align-self: center;
+    justify-self: center;
+    padding: 64px;
+    border-radius: var(--radius);
+    width: 540px;
+    max-width: 100%;
+    margin: 4px;
+    border: none;
+}
+
+::backdrop {
+    background-color: var(--black);
+    opacity: 0.32;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+legend {
+    all: unset;
+}
+
+.dialog-form h2 {
+    margin-bottom: 32px;
+}
+
+.field {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+form label,
+legend {
+    width: 140px;
+    margin: 0 8px;
+    margin-bottom: 4px;
+}
+
+input[type="text"] {
+    all: unset;
+    border: 1px solid var(--dark-grey);
+    background-color: var(--light-grey);
+    border-radius: 8px;
+    padding: 4px 8px;    
+}
+
+input[type="text"]:focus {
+    border: 1px solid var(--black);
+    background-color: var(--white);
+}
+
+.have-read {
+    margin-bottom: 32px;
+}
+
+.select-opt {
+    margin-left: 8px;
+    width: 200px;
+}
+
+.form-btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+}
+
+#cancel-book-btn {
+    all: unset;
+    box-sizing: border-box;
+    cursor: pointer;
+    border-radius: 32px;
+    padding: 12px 32px;
+    border: 1px solid var(--black);
+    background-color: var(--whiter);
+    color: var(--black);
+    font-family: 'Raleway';
+    font-weight: 600;
+}
+
+#add-book-btn {
+    all: unset;
+    cursor: pointer;
+    border-radius: 32px;
+    padding: 12px 32px;
+    background-color: var(--black);
+    color: var(--white);
+    font-family: 'Raleway';
+    font-weight: 600;
 }
 
 /* Main 

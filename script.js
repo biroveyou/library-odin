@@ -67,3 +67,22 @@ for (let book of myCollection) {
     bookHaveRead.textContent = book.readPhrase();
     bookTags.appendChild(bookHaveRead);
 }
+
+const newBookDialog = document.querySelector("dialog");
+const newBookBtn = document.querySelector("#new-book-btn");
+const cancelBookBtn = document.querySelector("#cancel-book-btn");
+const addBookBtn = document.querySelector("#add-book-btn");
+
+newBookBtn.addEventListener("click", () => {
+    newBookDialog.showModal();
+});
+
+cancelBookBtn.addEventListener("click", () => {
+    event.preventDefault();
+    newBookDialog.close();
+})
+
+addBookBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+    newBookDialog.close()
+})

@@ -10,10 +10,39 @@
 <body>
     <h1>My Library</h1>
     <main>
-        <h2>Books</h2>
-        <div class="bookshelf">
-
+        <div class="controls">
+            <h2>Books</h2>
+            <button id="new-book-btn">New book</button>
+            <dialog role="dialog" aria-modal="true">
+                <form class="dialog-form" method="POST">
+                    <h2>Add a new book</h2>
+                    <div class="field book-title">
+                        <label for="input-book-title">Book title *</label>
+                        <input id="input-book-title" name="input-book-title" type="text" maxlength="200" required>
+                    </div>
+                    <div class="field book-author">
+                        <label for="input-book-title">Book author</label>
+                        <input id="input-book-author" name="input-book-author" type="text" maxlength="200">
+                    </div>
+                    <div class="field page-number">
+                        <label for="input-page-number">Page Number *</label>
+                        <input id="input-book-title" name="input-book-title" type="text">
+                    </div>
+                    <fieldset class="field have-read">
+                        <legend>Reading status</legend>
+                        <div class="select-opt">
+                            <input id="input-have-read" name="input-have-read" type="checkbox" value="1">
+                            <label for="input-have-read">Book already read</label>
+                        </div>
+                    </fieldset>
+                    <div class="form-btns">
+                        <button id="cancel-book-btn">Cancel</button>
+                        <button id="add-book-btn" type="submit">Add</button>
+                    </div>
+                </form>
+            </dialog>
         </div>
+        <div class="bookshelf"></div>
     </main>
 </body>
 </html>
