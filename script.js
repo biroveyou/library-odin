@@ -25,6 +25,13 @@ function addBookToLibrary(title, author, pageNumber, haveRead) {
     myCollection.push(newBook);
 }
 
+function getIndex(id) {
+    return myCollection.findIndex((item) => {
+        console.log(item.idBook);
+        return item.idBook === id;
+    });
+}
+
 // Insert all books from myCollection into HTML
 function displayBook(book) {
     const bookCard = document.createElement("div");
