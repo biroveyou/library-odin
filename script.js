@@ -18,6 +18,10 @@ Book.prototype.readPhrase = function() {
 Book.prototype.info = function() {
     return `ID: ${this.idBook} - ${this.title} by ${this.author}, ${this.pageNumber} pages, ${this.readPhrase()}`;
 }
+Book.prototype.toggleHaveRead = function() {
+    this.haveRead = !this.haveRead;
+    return this.readPhrase();
+}
 
 // Function to create and add a book
 function addBookToLibrary(title, author, pageNumber, haveRead) {
@@ -76,7 +80,14 @@ function displayBook(book) {
     removeBookBtn.addEventListener("click", (item) => {
         myCollection.splice(getIndex(item.idBook), 1);
         bookCard.remove();
-    })
+    });
+
+    const readStatusBtn = document.createElement("button");
+    readStatusBtn.classList.add("read-status-btn");
+    bookAction.appendChild(readStatusBtn);
+    readStatusBtn.addEventListener("click", (item) => {
+        bookHaveRead.textContent = book.toggleHaveRead();
+    });
 }
 
 function refreshDisplay() {

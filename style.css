@@ -4,6 +4,7 @@
     --dark-grey: #777777;
     --white: #FFFFFF;
     --radius: 16px;
+    --btn-size: 24px;
 }
 
 * {
@@ -241,6 +242,14 @@ Styles*/
     font-size: 0.85rem;
 }
 
+.book-action {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 4px;
+}
+
 .remove-book-btn {
     all: unset;
     cursor: pointer;
@@ -251,6 +260,36 @@ Styles*/
     border-radius: 32px;
     padding: 4px;
     border: 1px solid var(--black);
-    width: 32px;
-    height: 32px;
+    width: var(--btn-size);
+    height: var(--btn-size);
+}
+
+.remove-book-btn:focus-visible,
+.remove-book-btn:active,
+.remove-book-btn:hover {
+    background-color: var(--black);
+    background-image: url(./icons/delete_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg);
+    border: 1px solid var(--black);
+}
+
+.read-status-btn {
+    all: unset;
+    cursor: pointer;
+    background-color: var(--white);
+    background-image: url(./icons/book_2_24dp_000000_FILL0_wght400_GRAD0_opsz24.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 32px;
+    padding: 4px;
+    border: 1px solid var(--black);
+    width: var(--btn-size);
+    height: var(--btn-size);
+}
+
+.read-status-btn:focus-visible,
+.read-status-btn:active,
+.read-status-btn:hover {
+    background-color: var(--black);
+    background-image: url(./icons/book_2_24dp_FFFFFF_FILL0_wght400_GRAD0_opsz24.svg);
+    border: 1px solid var(--black);
 }
