@@ -27,20 +27,21 @@ function addBookToLibrary(title, author, pageNumber, haveRead) {
 
 function getIndex(id) {
     return myCollection.findIndex((item) => {
-        console.log(item.idBook);
         return item.idBook === id;
     });
 }
 
 // Insert all books from myCollection into HTML
 function displayBook(book) {
+    const bookshelf = document.querySelector(".bookshelf");
+
     const bookCard = document.createElement("div");
-    bookCard.classList.add("book-card")
-    bookCard.setAttribute("data-id", `${book.idBook}`)
+    bookCard.classList.add("book-card");
+    bookCard.setAttribute("data-id", `${book.idBook}`);
     bookshelf.appendChild(bookCard);
 
     const bookLabel = document.createElement("div");
-    bookLabel.classList.add("book-label")
+    bookLabel.classList.add("book-label");
     bookCard.appendChild(bookLabel);
 
     const bookTitle = document.createElement("h3");
@@ -52,7 +53,7 @@ function displayBook(book) {
     bookLabel.appendChild(bookAuthor);
 
     const bookTags = document.createElement("div");
-    bookTags.classList.add("book-tags")
+    bookTags.classList.add("book-tags");
     bookCard.appendChild(bookTags);
 
     const bookPageNumber = document.createElement("span");
@@ -64,6 +65,24 @@ function displayBook(book) {
     bookHaveRead.classList.add("tag");
     bookHaveRead.textContent = book.readPhrase();
     bookTags.appendChild(bookHaveRead);
+
+    const bookAction = document.createElement("div");
+    bookAction.classList.add("book-action");
+    bookCard.appendChild(bookAction);
+
+    const removeBookBtn = document.createElement("button");
+    removeBookBtn.classList.add("remove-book-btn");
+    bookAction.appendChild(removeBookBtn);
+    removeBookBtn.addEventListener("click", (item) => {
+        myCollection.splice(getIndex(item.idBook), 1);
+        bookCard.remove();
+    })
+}
+
+function refreshDisplay() {
+    for (let book of myCollection) {
+        displayBook(book);
+    }
 }
 
 // Array to hold book objects
@@ -73,11 +92,7 @@ addBookToLibrary("The Fellowship of the Ring", "J. R. R. Tolkien", "479", false)
 addBookToLibrary("The Two Towers", "J. R. R. Tolkien", "415", true);
 addBookToLibrary("The Return of the King", "J. R. R. Tolkien", "496", false);
 
-const bookshelf = document.querySelector(".bookshelf");
-
-for (let book of myCollection) {
-    displayBook(book);
-}
+refreshDisplay();
 
 const newBookDialog = document.querySelector("dialog");
 const newBookForm = document.querySelector(".dialog-form")
