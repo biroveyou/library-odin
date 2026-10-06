@@ -25,20 +25,11 @@ function addBookToLibrary(title, author, pageNumber, haveRead) {
     myCollection.push(newBook);
 }
 
-// Array to hold book objects
-let myCollection= [];
-
-addBookToLibrary("The Fellowship of the Ring", "J. R. R. Tolkien", "479", false);
-addBookToLibrary("The Two Towers", "J. R. R. Tolkien", "415", true);
-addBookToLibrary("The Return of the King", "J. R. R. Tolkien", "496", false);
-
-
-const bookshelf = document.querySelector(".bookshelf");
-
 // Insert all books from myCollection into HTML
-for (let book of myCollection) {
+function displayBook(book) {
     const bookCard = document.createElement("div");
     bookCard.classList.add("book-card")
+    bookCard.setAttribute("data-id", `${book.idBook}`)
     bookshelf.appendChild(bookCard);
 
     const bookLabel = document.createElement("div");
@@ -68,7 +59,21 @@ for (let book of myCollection) {
     bookTags.appendChild(bookHaveRead);
 }
 
+// Array to hold book objects
+let myCollection= [];
+
+addBookToLibrary("The Fellowship of the Ring", "J. R. R. Tolkien", "479", false);
+addBookToLibrary("The Two Towers", "J. R. R. Tolkien", "415", true);
+addBookToLibrary("The Return of the King", "J. R. R. Tolkien", "496", false);
+
+const bookshelf = document.querySelector(".bookshelf");
+
+for (let book of myCollection) {
+    displayBook(book);
+}
+
 const newBookDialog = document.querySelector("dialog");
+const newBookForm = document.querySelector(".dialog-form")
 const newBookBtn = document.querySelector("#new-book-btn");
 const cancelBookBtn = document.querySelector("#cancel-book-btn");
 const addBookBtn = document.querySelector("#add-book-btn");
@@ -77,12 +82,21 @@ newBookBtn.addEventListener("click", () => {
     newBookDialog.showModal();
 });
 
-cancelBookBtn.addEventListener("click", () => {
+cancelBookBtn.addEventListener("click", (event) => {
     event.preventDefault();
+    newBookForm.reset();
     newBookDialog.close();
 })
 
 addBookBtn.addEventListener("click", (event) => {
     event.preventDefault();
-    newBookDialog.close()
-})
+    if (newBookForm.checkValidity()) {
+        const formControls = newBookForm.elements;
+        addBookToLibrary(formControls[0].value, formControls[1].value, formControls[2].value, formControls[4].checked);
+        displayBook(myCollection[myCollection.length - 1]);
+        newBookForm.reset();
+        newBookDialog.close();
+    } else {
+        newBookForm.reportValidity();   
+    }
+});
