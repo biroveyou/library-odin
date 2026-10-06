@@ -242,6 +242,13 @@ Styles*/
     font-size: 0.85rem;
 }
 
+.book-tags .already-read {
+    background-color: var(--dark-grey);
+    border-color: var(--dark-grey);
+    color: var(--white);
+    font-weight: 500;
+}
+
 .book-action {
     display: flex;
     flex-direction: column;

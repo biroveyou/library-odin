@@ -68,6 +68,7 @@ function displayBook(book) {
     const bookHaveRead = document.createElement("span");
     bookHaveRead.classList.add("tag");
     bookHaveRead.textContent = book.readPhrase();
+    book.haveRead && bookHaveRead.classList.add("already-read");
     bookTags.appendChild(bookHaveRead);
 
     const bookAction = document.createElement("div");
@@ -87,6 +88,7 @@ function displayBook(book) {
     bookAction.appendChild(readStatusBtn);
     readStatusBtn.addEventListener("click", (item) => {
         bookHaveRead.textContent = book.toggleHaveRead();
+        bookHaveRead.classList.toggle("already-read");
     });
 }
 
