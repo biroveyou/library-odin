@@ -1,4 +1,3 @@
-<!-- README.md -->
 # 📚 Library
 
 🇺🇸 English | [🇧🇷 Português](README.pt-BR.md)
@@ -47,6 +46,7 @@ library-odin/
 ├── index.html
 ├── style.css
 ├── script.js
+├── screenshot.png
 ├── fonts/
 └── icons/
 ```
